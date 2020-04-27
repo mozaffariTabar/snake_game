@@ -1,0 +1,28 @@
+body {
+    background: #000;
+    overflow: hidden;
+}
+
+#snake {
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -20;
+    background: #fff;
+
+    &.off {
+        transition: none;
+    }
+}
+
+#apple {
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    background: red;
+}
