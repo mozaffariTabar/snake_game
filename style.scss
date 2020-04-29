@@ -3,26 +3,83 @@ body {
     overflow: hidden;
 }
 
+#canvas {
+    width: 600px;
+    height: 600px;
+    background: url(ground.jpg);
+    background-size: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    cursor: none;
+    border: 10px solid rgb(56, 41, 1);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.459);
+}
+
 #snake {
-    width: 20px;
-    height: 20px;
+    width: 38px;
+    height: 30px;
     display: block;
     position: absolute;
     top: 0;
     left: -20;
-    background: #fff;
+    z-index: 1;
 
     &.off {
         transition: none;
     }
+
+    &[dir=up] {
+        transform: rotate(-90deg);
+    }
+
+    &[dir=down] {
+        transform: rotate(90deg);
+    }
+
+    &[dir=right] {
+        transform: rotate(0deg);
+    }
+
+    &[dir=left] {
+        transform: rotate(-180deg);
+    }
 }
 
 #apple {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     top: 0;
     left: -20px;
-    background: red;
+    background-image: url(apple.png);
+    background-size: 100% 100%;
+
+    &.shake {
+        animation: shake .7s linear;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(30deg);
+        width: 32px;
+        height: 32px;
+    }
+
+    50% {
+        transform: rotate(-30deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
